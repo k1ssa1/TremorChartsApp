@@ -1,10 +1,9 @@
 function App() {
   
-
   return (
-    <>
-      Hello
-    </>
+    <div className="col-8">
+        <h2>Index</h2>
+    </div>
   )
 }
 
