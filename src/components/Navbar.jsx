@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useState } from "react";
 
 import { IoIosArrowDown, IoIosArrowUp  } from "react-icons/io";
+import { BsGithub } from "react-icons/bs";
 
 const Navbar = () => {
 
@@ -103,6 +104,9 @@ const controlSciMenu = () => {
 
     return ( 
         <div className="col-2 bg-black py-4 px-3">
+            <NavLink to ="https://github.com/k1ssa1">
+                <BsGithub color="#f5f5f5" fontSize="3rem" className="mt-2 mb-3"/>
+            </NavLink>
             <div className="mt-3 mb-4">
                 <NavLink to="/" className="text-decoration-none text-white fs-5">TermorChartsApp</NavLink>
             </div>
