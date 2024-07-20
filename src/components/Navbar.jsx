@@ -106,22 +106,26 @@ const controlSciMenu = () => {
             <div className="mt-3 mb-4">
                 <NavLink to="/" className="text-decoration-none text-white fs-5">TermorChartsApp</NavLink>
             </div>
+            <hr />
            <dl className="my-3">
             <dt>
                 <NavLink to="/maps" className="text-decoration-none text-white">Map box</NavLink>
             </dt>
+            <hr />
             <dt>
                 <NavLink to="/basic-charts/scatter-plot" className="text-decoration-none text-white me-1">Basic charts</NavLink>
                 {fdownIcon && <DownIcon onClick={controlBasicsMenu}/>}
                 {fupIcon && <UpIcon onClick={controlBasicsMenu}/>}
             </dt>
             {basiccharts && <BasicChartList/>}
+            <hr />
             <dt className="">
                 <NavLink to="/statistical-charts/histograms" className="text-decoration-none text-white me-1">Statistical charts</NavLink>
                 {sdownIcon && <DownIcon onClick={controlStatsMenu}/>}
                 {supIcon && <UpIcon onClick={controlStatsMenu}/>}
             </dt>
            {statcharts && <StatChartsList/>}
+           <hr />
             <dt className="">
                 <NavLink to="/scientific-charts/heat-maps" className="text-decoration-none text-white me-1">Scientifc charts</NavLink>
                 {ldownIcon && <DownIcon onClick={controlSciMenu}/>}
