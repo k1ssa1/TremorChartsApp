@@ -10,7 +10,7 @@ const BarChart = () => {
 
     async function getData(){
         try{
-            const req = await instance.get("query?format=geojson&starttime=2023-09-07&endtime=2023-09-15");
+            const req = await instance.get("query?format=geojson&starttime=2016-10-07&endtime=2016-10-15");
             const res = req.data;
             const magnitueArray = []
             res.features.forEach(item => {
