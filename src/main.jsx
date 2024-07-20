@@ -8,20 +8,19 @@ import Maps from './views/Maps.jsx';
 import ScatterPlot from './views/ScatterPlot.jsx';
 import BarChart from './views/BarChart.jsx';
 import PieChart from './views/PieChart.jsx';
-
-import 'bootstrap/dist/css/bootstrap.css';
 import Histograms from './views/Histograms.jsx';
 import DensityPlots from './views/DensityPlots.jsx';
 import HeatMaps from './views/HeatMaps.jsx';
 import RadarChart from './views/Radar.jsx';
-// Put any other imports below so that CSS from your
-// components takes precedence over default styles.
+
+import 'bootstrap/dist/css/bootstrap.css';
 
 const Layout = () => {
   return(
     <div className="container-fluid">
-      <div className="row">
+      <div className="row vh-100">
         <Navbar/>
+        <div className="col-1"></div>
         <Outlet/>
       </div>
     </div>
