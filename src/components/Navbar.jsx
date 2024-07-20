@@ -23,7 +23,8 @@ const BasicChartList = () => (
 )
 
 const displayBasicCharts = () => {
-    setBasiccharts(true)
+    if(!basiccharts) setBasiccharts(true)
+    if(basiccharts) setBasiccharts(false)
 }
 
 const StatChartsList = () => (
@@ -37,8 +38,10 @@ const StatChartsList = () => (
     </>
 )
 
+
 const displayStatCharts = () => {
-    setStatcharts(true)
+    if(!statcharts) setStatcharts(true)
+    if(statcharts) setStatcharts(false)
 }
 
 const SciChartsList = () => (
@@ -53,7 +56,8 @@ const SciChartsList = () => (
 )
 
 const displaySciCharts = () => {
-    setSciCharts(true)
+    if(!scicharts) setSciCharts(true)
+    if(scicharts) setSciCharts(false)
 }
 
     return ( 
