@@ -63,14 +63,14 @@ const displaySciCharts = () => {
     return ( 
         <div className="col-2 bg-black py-4 px-3">
             <div className="mt-3 mb-4">
-                <h5 className="text-white ">TermorChartsApp</h5>
+                <NavLink to="/" className="text-decoration-none text-white fs-5">TermorChartsApp</NavLink>
             </div>
            <dl className="my-3">
             <dt>
                 <NavLink to="/maps" className="text-decoration-none text-white">Map box</NavLink>
             </dt>
             <dt>
-                <NavLink to="/basic-charts/scatter-plot" className="text-decoration-none text-white" onClick={displayBasicCharts}>Basic charts</NavLink>
+                <NavLink to="/basic-charts/scatter-plot" className="text-decoration-none text-white " onClick={displayBasicCharts}>Basic charts</NavLink>
             </dt>
             {basiccharts && <BasicChartList/>}
             <dt className="">

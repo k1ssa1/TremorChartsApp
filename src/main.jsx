@@ -4,14 +4,14 @@ import App from './App.jsx'
 import { createBrowserRouter, RouterProvider , Outlet} from 'react-router-dom'
 
 import Navbar from './components/Navbar.jsx';
-import Maps from './views/Maps.jsx';
-import ScatterPlot from './views/ScatterPlot.jsx';
-import BarChart from './views/BarChart.jsx';
-import PieChart from './views/PieChart.jsx';
-import Histograms from './views/Histograms.jsx';
-import DensityPlots from './views/DensityPlots.jsx';
-import HeatMaps from './views/HeatMaps.jsx';
-import RadarChart from './views/Radar.jsx';
+import Maps from './views/maps/Maps.jsx';
+import ScatterPlot from './views/basic/ScatterPlot.jsx';
+import BarChart from './views/basic/BarChart.jsx';
+import PieChart from './views/basic/PieChart.jsx';
+import Histograms from './views/statistical/Histograms.jsx';
+import DensityPlots from './views/statistical/DensityPlots.jsx';
+import HeatMaps from './views/scientific/HeatMaps.jsx';
+import RadarChart from './views/scientific/Radar.jsx';
 
 import 'bootstrap/dist/css/bootstrap.css';
 
