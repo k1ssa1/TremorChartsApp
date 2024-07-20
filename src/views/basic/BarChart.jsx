@@ -37,7 +37,9 @@ const BarChart = () => {
         }
     }
 
-    useEffect(()=>getData(),[])
+    useEffect(()=>{
+        getData()
+    })
 
 
     return ( 
