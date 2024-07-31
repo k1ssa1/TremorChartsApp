@@ -9,11 +9,12 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const BarChart = () => {
 
-    const [data, setData] = useState([])
-    const [startDate, setStartDate] = useState(new Date())
-    const [endDate, setEndDate] = useState(new Date())
-    const [error,setError] = useState(false)
+    const [data, setData] = useState([]);
+    const [startDate, setStartDate] = useState(new Date());
+    const [endDate, setEndDate] = useState(new Date());
+    const [error,setError] = useState(false);
     const [confirmLoad, setConfirmLoad] = useState(false);
+    const [loader, setLoader] = useState(false)
 
     const ErrorMessage = () => (
         <div className="alert alert-danger" role="alert">
@@ -27,13 +28,27 @@ const BarChart = () => {
         </div>
     )
 
+    const LoaderMessage = () => (
+        <div className="mt-3">
+            <div className="spinner-border" style={{width: "2rem", height: "2rem"}} role="status">
+                <span className="visually-hidden">Loading...</span>
+            </div>
+            <div className="spinner-grow" style={{width: "2rem", height: "2rem"}} role="status">
+                <span className="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    )
+
     async function getData(){
         const dateDifference = (endDate - startDate) / (1000 * 60 * 60 * 24);
         if( dateDifference > 31){
             setError(true);
             setConfirmLoad(false)
+            setLoader(false)
         }else{
+            setConfirmLoad(false)
             setError(false)
+            setLoader(true)
             try{
                 const isoStartDate = startDate.toISOString();
                 const isoEndDate = endDate.toISOString();
@@ -66,6 +81,8 @@ const BarChart = () => {
     
             }catch(err){
                 console.error(err)
+            }finally{
+                setLoader(false)
             }
         }
     }
@@ -101,6 +118,7 @@ const BarChart = () => {
                     />
                     <button type="submit" className="bg-success text-bg-primary border border-success">display data</button>
                 </form>
+            {loader && <LoaderMessage/>}
             </div>
             <div className="row">
             {data && <MagnitudeChart data={data}/>}

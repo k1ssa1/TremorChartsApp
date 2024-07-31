@@ -25,7 +25,7 @@ const MgnitudeChart = ({data}) => {
             layout={{
                 width: 700,
                 height: 450,
-                title: "Number of earthquakes by Magnitude rane from 0 to 6+",
+                title: "Number of earthquakes by Magnitude range from 0 to 6+",
                 xaxis:{
                     title: 'Magnitude range'
                 },
