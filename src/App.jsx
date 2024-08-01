@@ -5,7 +5,11 @@ import { MdHttp } from "react-icons/md";
 function App() {
   
   return (
-    <div className="col-8">
+    <>
+    <head>
+      <title>Tremorcharts -home</title>
+    </head>
+      <div className="col-8">
         <h1 className="mt-5 mb-3">Index</h1>
         <p>Welcome to this React application, designed to explore and visualize data from the USGS Earthquake Event API. This API provides comprehensive data on seismic events around the world, including earthquake magnitudes, locations, and times. The app leverages this data to create interactive and informative visualizations, helping users understand the patterns and impacts of earthquakes globally.  <a href="https://earthquake.usgs.gov/fdsnws/event/1"> more here</a></p>
         <p>In this app, I use PlotlyJS to create various types of charts that display the earthquake data. From scatter plots to bar charts and more, PlotlyJS enables dynamic and detailed visual representations of the seismic information. Navigate through the navbar to access different chart types categorized for ease of exploration.</p>
@@ -18,7 +22,8 @@ function App() {
           <dd> <FaRegLaughWink className="me-2"/>And more tools and libraries to come for functionality and performance.</dd>
         </dl>
         <p>Find this repo on <a href="https://github.com/k1ssa1/TremorChartsApp">github</a></p>
-    </div>
+      </div>
+    </>
   )
 }
 
