@@ -6,10 +6,12 @@ import "react-datepicker/dist/react-datepicker.css";
 import {instance} from "../../config/axios.instance."
 
 import MagnitudePie from "../../components/basic/piecharts/MagnitudePie";
+import TypePie from "../../components/basic/piecharts/TypePie";
 
 const PieChart = () => {
 
     const [pieData, setPieData] = useState([]);
+    const [typeData, setTypeData] = useState([])
     const [startDate, setStartDate] = useState(new Date())
     const [endDate, setEndDate] = useState(new Date())
 
@@ -23,6 +25,8 @@ const PieChart = () => {
             console.log("ISO end date: " + queryEndDate);
             const req = await instance.get(`query?format=geojson&starttime=${queryStartDate}&endtime=${queryEndDate}`);
             const res = req.data;
+
+            // for eartquake ranges
             const magnitueArray = []
             res.features.forEach(item => {
                 const mag = item.properties.mag;
@@ -53,6 +57,25 @@ const PieChart = () => {
            })
 
            setPieData(purcentages)
+
+           // for eartquake types
+           const earthquakeType = [0,0,0]
+           res.features.forEach(item => {
+            if(item.properties.type === "earthquake") earthquakeType[0]++;
+            if(item.properties.type === "explosion") earthquakeType[1]++;
+            if(item.properties.type === "other event") earthquakeType[2]++;
+           })
+
+           let count2 = 0;
+           earthquakeType.forEach(item => count2 += item)
+
+           const typePurcentage = []
+           earthquakeType.forEach(item => {
+            const typePurcentageVal = (item / count2) * 100;
+            typePurcentage.push(typePurcentageVal)
+           })
+
+           setTypeData(typePurcentage)
 
         }catch(err){
             console.error(err)
@@ -89,8 +112,9 @@ const PieChart = () => {
                     <button type="submit" className="bg-success text-bg-primary border border-success">display data</button>
                 </form>
             </div>
-            <div className="row">
+            <div className="d-flex flex-row justify-content-between">
                 {pieData && <MagnitudePie pieData={pieData}/>}
+                {typeData && <TypePie typeData={typeData}/>}
             </div>
         </div>
      );
