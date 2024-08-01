@@ -105,7 +105,7 @@ const ScatterPlot = () => {
                 {loader && <Loader/>}
             </div>
             <div className="d-flex flex-row justify-content-between">
-                {scatterData.length > 0 && <MagnitudeScatter scatterData={scatterData}/>}
+                {scatterData && <MagnitudeScatter scatterData={scatterData}/>}
             </div>
         </div>
      );
