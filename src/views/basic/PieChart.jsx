@@ -7,6 +7,9 @@ import {instance} from "../../config/axios.instance."
 
 import MagnitudePie from "../../components/basic/piecharts/MagnitudePie";
 import TypePie from "../../components/basic/piecharts/TypePie";
+import Loader from "../../components/states/Loader";
+import Error from "../../components/states/Error";
+import Success from "../../components/states/Success";
 
 const PieChart = () => {
 
@@ -17,29 +20,6 @@ const PieChart = () => {
     const [error,setError] = useState(false);
     const [confirmLoad, setConfirmLoad] = useState(false);
     const [loader, setLoader] = useState(false)
-
-    const ErrorMessage = () => (
-        <div className="alert alert-danger" role="alert">
-            Please select a date range within 31 days.
-        </div>
-    )
-
-    const ConfirmMessage = () => (
-        <div className="alert alert-success" role="alert">
-             Successfully loaded data from {startDate.toDateString()} to {endDate.toDateString()}.
-        </div>
-    )
-
-    const LoaderMessage = () => (
-        <div className="mt-3">
-            <div className="spinner-border" style={{width: "2rem", height: "2rem"}} role="status">
-                <span className="visually-hidden">Loading...</span>
-            </div>
-            <div className="spinner-grow" style={{width: "2rem", height: "2rem"}} role="status">
-                <span className="visually-hidden">Loading...</span>
-            </div>
-        </div>
-    )
 
     const getData = async () => {
         const dateDifference = (endDate - startDate) / (1000 * 60 * 60 * 24);
@@ -136,8 +116,8 @@ const PieChart = () => {
             <h2 className="mt-4 text-secondary">Pie chart</h2>
             <hr />
             <div className="row mb-5 mx-2">
-            {error && <ErrorMessage />}
-            {confirmLoad && <ConfirmMessage />}
+            {error && <Error />}
+            {confirmLoad && <Success startDate={startDate} endDate={endDate} />}
                 <form onSubmit={handleSubmit} className="d-flex flex-row justify-content-around">
                     <label>Select start date</label>
                     <DatePicker
@@ -155,7 +135,7 @@ const PieChart = () => {
                     />
                     <button type="submit" className="bg-success text-bg-primary border border-success">display data</button>
                 </form>
-                {loader && <LoaderMessage/>}
+                {loader && <Loader/>}
             </div>
             <div className="d-flex flex-row justify-content-between">
                 {pieData && <MagnitudePie pieData={pieData}/>}

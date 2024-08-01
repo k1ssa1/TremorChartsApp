@@ -6,6 +6,9 @@ import MagnitudeChart from "../../components/basic/barcharts/MagnitudeChart";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Error from "../../components/states/Error";
+import Success from "../../components/states/Success";
+import Loader from "../../components/states/Loader";
 
 const BarChart = () => {
 
@@ -15,29 +18,6 @@ const BarChart = () => {
     const [error,setError] = useState(false);
     const [confirmLoad, setConfirmLoad] = useState(false);
     const [loader, setLoader] = useState(false)
-
-    const ErrorMessage = () => (
-        <div className="alert alert-danger" role="alert">
-            Please select a date range within 31 days.
-        </div>
-    )
-
-    const ConfirmMessage = () => (
-        <div className="alert alert-success" role="alert">
-             Successfully loaded data from {startDate.toDateString()} to {endDate.toDateString()}.
-        </div>
-    )
-
-    const LoaderMessage = () => (
-        <div className="mt-3">
-            <div className="spinner-border" style={{width: "2rem", height: "2rem"}} role="status">
-                <span className="visually-hidden">Loading...</span>
-            </div>
-            <div className="spinner-grow" style={{width: "2rem", height: "2rem"}} role="status">
-                <span className="visually-hidden">Loading...</span>
-            </div>
-        </div>
-    )
 
     async function getData(){
         const dateDifference = (endDate - startDate) / (1000 * 60 * 60 * 24);
@@ -99,8 +79,8 @@ const BarChart = () => {
             <h2 className="mt-4 text-secondary">Bar chart</h2>
             <hr />
             <div className="row mb-5 mx-2">
-            {error && <ErrorMessage />}
-            {confirmLoad && <ConfirmMessage />}
+            {error && <Error />}
+            {confirmLoad && <Success startDate={startDate} endDate={endDate} />}
                 <form onSubmit={handleSubmit} className="d-flex flex-row justify-content-around">
                     <label>Select start date</label>
                     <DatePicker
@@ -118,7 +98,7 @@ const BarChart = () => {
                     />
                     <button type="submit" className="bg-success text-bg-primary border border-success">display data</button>
                 </form>
-            {loader && <LoaderMessage/>}
+            {loader && <Loader/>}
             </div>
             <div className="row">
             {data && <MagnitudeChart data={data}/>}
