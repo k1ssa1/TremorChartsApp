@@ -21,8 +21,8 @@ const TypePie = ({typeData}) => {
             }
           ]}
           layout={{
-            height: 400,
-            width: 500,
+            height: 450,
+            width: 480,
             title: "Distribution of Event Types"
           }}
         />
