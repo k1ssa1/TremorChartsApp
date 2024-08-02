@@ -108,7 +108,7 @@ const controlSciMenu = () => {
                 <BsGithub color="#f5f5f5" fontSize="3rem" className="mt-2 mb-3"/>
             </NavLink>
             <div className="mt-3 mb-4">
-                <NavLink to="/" className="text-decoration-none text-white fs-5">TermorChartsApp</NavLink>
+                <NavLink to="/" className="text-decoration-none text-white fs-5">TremorChartsApp</NavLink>
             </div>
             <hr />
            <dl className="my-3">
