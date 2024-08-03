@@ -3,7 +3,7 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-import {instance} from "../../config/axios.instance."
+import {instance} from "../../config/axios.instance"
 
 import MagnitudePie from "../../components/basic/piecharts/MagnitudePie";
 import TypePie from "../../components/basic/piecharts/TypePie";

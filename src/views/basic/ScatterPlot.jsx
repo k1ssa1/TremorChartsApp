@@ -7,7 +7,7 @@ import Loader from "../../components/states/Loader";
 import Error from "../../components/states/Error";
 import Success from "../../components/states/Success";
 
-import {instance} from "../../config/axios.instance."
+import {instance} from "../../config/axios.instance"
 import MagnitudeScatter from "../../components/basic/scattercharts/MagnitudeScatter";
 
 const ScatterPlot = () => {

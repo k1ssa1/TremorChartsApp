@@ -1,19 +1,32 @@
 import { useState } from "react";
-import { instance } from "../../config/axios.instance.";
+import { instance } from "../../config/axios.instance";
+import Mapbox from "../../components/maps/Mapbox";
 
 const Maps = () => {
 
+    const [data, setData] = useState([])
     const [latitude, setLatitude] = useState(0)
     const [longitude, setLongitude] = useState(0)
     const [maxRadiusKM, setMaxRadiusKm] = useState(0)
+
+    const [lon, setLon] = useState([])
+    const [lat, setLat] = useState([])
 
     const getData = async () => {
        try{
             const req = await instance.get(`query?format=geojson&latitude=${latitude}&longitude=${longitude}&maxradiuskm=${maxRadiusKM}`)
             const res = req.data
+            const pos = []
             res.features.forEach(item => {
-                console.log(item.properties.type)
+                pos.push(item.geometry.coordinates)
             })
+            setData(pos)
+
+            const longs = pos.map(item => item[0])
+            const lats = pos.map(item => item[1])
+
+            setLon(longs)
+            setLat(lats)
 
        }catch(err){
         console.error(err)
@@ -46,8 +59,14 @@ const Maps = () => {
                 <button className="bg-success text-bg-primary border border-success p-1" type="submit">Display data</button>
             </form>
         </div>
+        <div className="row">
+           {data && <Mapbox lon={lon} lat={lat} />}
+        </div>
     </div>
+
     );
+
+
 }
  
 export default Maps;

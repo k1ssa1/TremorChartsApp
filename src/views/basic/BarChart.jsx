@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { instance } from "../../config/axios.instance.";
+import { instance } from "../../config/axios.instance";
 
 import MagnitudeChart from "../../components/basic/barcharts/MagnitudeChart";
 
