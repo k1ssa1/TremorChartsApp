@@ -1,6 +1,6 @@
 import Plot from "react-plotly.js";
 
-const Mapbox = ({lon,lat}) => {
+const Mapbox = ({lon,lat, place}) => {
 
     return ( 
         <Plot
@@ -11,7 +11,9 @@ const Mapbox = ({lon,lat}) => {
                     mode: 'markers',
                     lon: lon,
                     lat: lat,
-                    marker: { color: "red", size: 10 }
+                    text: place,
+                    hoverinfo: 'text',
+                    marker: { color: "red", size: 10}
                 }
             ]}
             

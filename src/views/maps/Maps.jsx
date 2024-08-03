@@ -15,23 +15,28 @@ const Maps = () => {
 
     const [lon, setLon] = useState([])
     const [lat, setLat] = useState([])
+    const [place, setPlace] = useState([])
 
     const getData = async () => {
        try{
             setLoader(true)
             const req = await instance.get(`query?format=geojson&latitude=${latitude}&longitude=${longitude}&maxradiuskm=${maxRadiusKM}`)
             const res = req.data
-            const pos = []
-            res.features.forEach(item => {
-                pos.push(item.geometry.coordinates)
-            })
+
+            const pos = res.features.map(item => ({
+                coordinates: item.geometry.coordinates,
+                place: item.properties.place,
+            }))
             setData(pos)
 
-            const longs = pos.map(item => item[0])
-            const lats = pos.map(item => item[1])
+            const longs = pos.map(item => item.coordinates[0])
+            const lats = pos.map(item => item.coordinates[1])
+            const locations = pos.map(item => item.place)
 
             setLon(longs)
             setLat(lats)
+            setPlace(locations)
+
 
        }catch(err){
         console.error(err)
@@ -68,7 +73,7 @@ const Maps = () => {
             {loader && <Loader/>}
         </div>
         <div className="row">
-           {data && <Mapbox lon={lon} lat={lat} />}
+           {data && <Mapbox lon={lon} lat={lat} place={place} />}
         </div>
     </div>
 
