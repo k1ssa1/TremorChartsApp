@@ -2,6 +2,8 @@ import { useState } from "react";
 import { instance } from "../../config/axios.instance";
 import Mapbox from "../../components/maps/Mapbox";
 
+import Loader from "../../components/states/Loader";
+
 const Maps = () => {
 
     const [data, setData] = useState([])
@@ -9,11 +11,14 @@ const Maps = () => {
     const [longitude, setLongitude] = useState(0)
     const [maxRadiusKM, setMaxRadiusKm] = useState(0)
 
+    const [loader, setLoader] = useState(false)
+
     const [lon, setLon] = useState([])
     const [lat, setLat] = useState([])
 
     const getData = async () => {
        try{
+            setLoader(true)
             const req = await instance.get(`query?format=geojson&latitude=${latitude}&longitude=${longitude}&maxradiuskm=${maxRadiusKM}`)
             const res = req.data
             const pos = []
@@ -30,6 +35,8 @@ const Maps = () => {
 
        }catch(err){
         console.error(err)
+       }finally{
+        setLoader(false)
        }
     }
 
@@ -58,6 +65,7 @@ const Maps = () => {
                 </div>
                 <button className="bg-success text-bg-primary border border-success p-1" type="submit">Display data</button>
             </form>
+            {loader && <Loader/>}
         </div>
         <div className="row">
            {data && <Mapbox lon={lon} lat={lat} />}
