@@ -16,6 +16,10 @@ const Maps = () => {
     const [lon, setLon] = useState([])
     const [lat, setLat] = useState([])
     const [place, setPlace] = useState([])
+    const [magnitudes, setMagnitudes] = useState([])
+    const [time, setTime] = useState([])
+    const [type, setType] = useState([])
+    const [detail, setDetail] = useState([])
 
     const getData = async () => {
        try{
@@ -26,17 +30,28 @@ const Maps = () => {
             const pos = res.features.map(item => ({
                 coordinates: item.geometry.coordinates,
                 place: item.properties.place,
+                magnitude: item.properties.mag,
+                time: item.properties.time,
+                type: item.properties.type,
+                detail: item.properties.detail
             }))
             setData(pos)
 
             const longs = pos.map(item => item.coordinates[0])
             const lats = pos.map(item => item.coordinates[1])
             const locations = pos.map(item => item.place)
+            const magnitudes = pos.map(item => item.magnitude)
+            const times = pos.map(item => item.time)
+            const types = pos.map(item => item.type)
+            const details = pos.map(item => item.detail)
 
             setLon(longs)
             setLat(lats)
             setPlace(locations)
-
+            setMagnitudes(magnitudes)
+            setTime(times)
+            setType(types)
+            setDetail(details)
 
        }catch(err){
         console.error(err)
@@ -73,7 +88,7 @@ const Maps = () => {
             {loader && <Loader/>}
         </div>
         <div className="row">
-           {data && <Mapbox lon={lon} lat={lat} place={place} />}
+           {data && <Mapbox lon={lon} lat={lat} place={place} magnitudes={magnitudes} time={time} type={type} detail={detail}/>}
         </div>
     </div>
 
