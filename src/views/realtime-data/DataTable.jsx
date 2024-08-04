@@ -55,6 +55,16 @@ const DataTable = () => {
     getData();
   }, []);
 
+  const getMagnitudeColor = (magnitude) => {
+    if (magnitude > 5.0) {
+      return { backgroundColor: "red", color: "white"};
+    } else if (magnitude >= 3.0 && magnitude <= 5.0) {
+      return { backgroundColor: "orange", color: "black" };
+    } else {
+      return { backgroundColor: "green", color: "white" };
+    }
+  };
+
   return (
     <>
       <div className="col-9">
@@ -65,8 +75,8 @@ const DataTable = () => {
           </Breadcrumb.Item>
         </Breadcrumb>
         <hr />
-        <table className="table table-striped">
-          <thead>
+        <table className="w-100">
+          <thead className="bg-dark-subtle">
             <tr>
               <th scope="col">Type</th>
               <th scope="col">Place</th>
@@ -78,12 +88,12 @@ const DataTable = () => {
           <tbody>
            {
             data.length > 0 && data.map((item, index) => (
-                <tr key={index}>
-                    <td>{item.type}</td>
-                    <td>{item.place}</td>
-                    <td>{item.time}</td>
-                    <td>{item.magnitude}</td>
-                    <td><a href={item.detail}>more details</a></td>
+                <tr key={index} style={getMagnitudeColor(item.magnitude)}>
+                    <td className="mx-2">{item.type}</td>
+                    <td className="mx-2">{item.place}</td>
+                    <td className="mx-2">{item.time}</td>
+                    <td className="mx-2">{item.magnitude}</td>
+                    <td className="mx-2"><a href={item.detail}>more details</a></td>
                 </tr>
             ))
            }
