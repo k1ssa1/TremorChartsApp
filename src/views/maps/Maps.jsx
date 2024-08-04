@@ -4,6 +4,8 @@ import Mapbox from "../../components/maps/Mapbox";
 
 import Loader from "../../components/states/Loader";
 
+import Breadcrumb from 'react-bootstrap/Breadcrumb';
+
 const Maps = () => {
 
     const [data, setData] = useState([])
@@ -67,7 +69,10 @@ const Maps = () => {
 
     return ( 
     <div className="col-9">
-        <h2 className="mt-4 text-secondary">Maps</h2>
+        <Breadcrumb className="mt-3">
+            <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+            <Breadcrumb.Item href="maps" active>Maps</Breadcrumb.Item>
+        </Breadcrumb>
         <hr />
         <div className="row mb-5 mx-2">
             <form className="d-flex flex-row justify-content-between align-items-end" onSubmit={handleSubmit}>

@@ -10,6 +10,8 @@ import Success from "../../components/states/Success";
 import {instance} from "../../config/axios.instance"
 import MagnitudeScatter from "../../components/basic/scattercharts/MagnitudeScatter";
 
+import Breadcrumb from 'react-bootstrap/Breadcrumb';
+
 const ScatterPlot = () => {
 
     const [scatterData, setScatterData] = useState([])
@@ -80,7 +82,11 @@ const ScatterPlot = () => {
 
     return ( 
         <div className="col-9">
-            <h2 className="mt-4 text-secondary">Scatter plot</h2>
+            <Breadcrumb className="mt-3">
+                <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+                <Breadcrumb.Item href="scatter-plot">Basic charts</Breadcrumb.Item>
+                <Breadcrumb.Item href="scatter-plot" active>Scatter plots</Breadcrumb.Item>
+            </Breadcrumb>
             <hr />
             <div className="row mb-5 mx-2">
             {error && <Error />}

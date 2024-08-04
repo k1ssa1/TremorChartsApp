@@ -10,6 +10,8 @@ import Error from "../../components/states/Error";
 import Success from "../../components/states/Success";
 import Loader from "../../components/states/Loader";
 
+import Breadcrumb from 'react-bootstrap/Breadcrumb';
+
 const BarChart = () => {
 
     const [data, setData] = useState([]);
@@ -76,7 +78,11 @@ const BarChart = () => {
 
     return ( 
         <div className="col-9">
-            <h2 className="mt-4 text-secondary">Bar chart</h2>
+             <Breadcrumb className="mt-3">
+                <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+                <Breadcrumb.Item href="scatter-plot">Basic charts</Breadcrumb.Item>
+                <Breadcrumb.Item href="bar-chart" active>Bar charts</Breadcrumb.Item>
+            </Breadcrumb>
             <hr />
             <div className="row mb-5 mx-2">
             {error && <Error />}

@@ -11,6 +11,8 @@ import Loader from "../../components/states/Loader";
 import Error from "../../components/states/Error";
 import Success from "../../components/states/Success";
 
+import Breadcrumb from 'react-bootstrap/Breadcrumb';
+
 const PieChart = () => {
 
     const [pieData, setPieData] = useState([]);
@@ -113,7 +115,11 @@ const PieChart = () => {
 
     return ( 
         <div className="col-9">
-            <h2 className="mt-4 text-secondary">Pie chart</h2>
+             <Breadcrumb className="mt-3">
+                <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+                <Breadcrumb.Item href="scatter-plot">Basic charts</Breadcrumb.Item>
+                <Breadcrumb.Item href="pie-chart" active>Pie charts</Breadcrumb.Item>
+            </Breadcrumb>
             <hr />
             <div className="row mb-5 mx-2">
             {error && <Error />}
