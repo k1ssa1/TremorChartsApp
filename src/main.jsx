@@ -4,6 +4,7 @@ import App from './App.jsx'
 import { createBrowserRouter, RouterProvider , Outlet} from 'react-router-dom'
 
 import Navbar from './components/Navbar.jsx';
+import DataTable from './views/realtime-data/DataTable.jsx';
 import Maps from './views/maps/Maps.jsx';
 import ScatterPlot from './views/basic/ScatterPlot.jsx';
 import BarChart from './views/basic/BarChart.jsx';
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <App/>
+      },
+      {
+        path: "data-table",
+        element: <DataTable/>
       },
       {
         path: "maps",

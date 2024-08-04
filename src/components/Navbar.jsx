@@ -113,6 +113,10 @@ const controlSciMenu = () => {
             <hr />
            <dl className="my-3">
             <dt>
+                <NavLink to="/data-table" className="text-decoration-none text-white">Real time data</NavLink>
+            </dt>
+            <hr />
+            <dt>
                 <NavLink to="/maps" className="text-decoration-none text-white">Map box</NavLink>
             </dt>
             <hr />
