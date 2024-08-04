@@ -4,8 +4,12 @@ import { instance } from "../../config/axios.instance";
 
 import { useEffect, useState } from "react";
 
+import Loader from "../../components/states/Loader"
+import { Spinner } from "react-bootstrap";
+
 const DataTable = () => {
   const [data, setData] = useState([]);
+  const [spinner, setSpinner] = useState(true)
 
   const currentDate = new Date();
   const startDate = new Date();
@@ -48,6 +52,8 @@ const DataTable = () => {
       setData(info);
     } catch (err) {
       console.error(err);
+    }finally{
+      setSpinner(false)
     }
   };
 
@@ -75,6 +81,10 @@ const DataTable = () => {
           </Breadcrumb.Item>
         </Breadcrumb>
         <hr />
+        <div className="alert alert-primary" role="alert">
+          Displaying Real-Time Event Data from the Current Date to the Previous Day
+        </div>
+        {spinner && <Loader/>}
         <table className="w-100">
           <thead className="bg-dark-subtle">
             <tr>
