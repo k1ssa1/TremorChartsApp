@@ -7,17 +7,15 @@ This application does not own the data from the endpoints provided by the USGS E
 
 **TermorChartApp** is a React application designed to visualize earthquake data using Plotly.js. The app fetches data from the USGS Earthquake API, available at [USGS Earthquake API](https://earthquake.usgs.gov/fdsnws/event/1/), and creates various types of charts to help users analyze and understand earthquake occurrences.
 
-## 🛠️ Technologies Used
-
-The app leverages the following technologies:
-- **⚛️ React**: For building the user interface and managing the state of the application.
-- **🎨 Bootstrap**: For responsive design and styling.
-- **📊 Plotly.js**: For creating interactive and visually appealing charts.
-- **🔗 Axios**: For making HTTP requests to fetch data from the API.
+## 🌐 Live Demo
+The app is live on Netlify! Feel free to use it at [cozy-torrone-db02c4.netlify.app](https://cozy-torrone-db02c4.netlify.app).
 
 ## 📈 Available Charts
 
 TermorChartApp offers a wide range of charts categorized into basic, statistical, and scientific charts:
+
+### 🕒 Real-Time Data Table
+- **Real-Time Data Displayer**: A table that shows the latest earthquakes, categorizing them by magnitude with green for low, orange for medium, and red for high. The table displays the event type, event location, time, magnitude, and a link for more details.
 
 ### 🗺️ Map Box
 - **Map Box**: Displays earthquake occurrences on an interactive map.
@@ -28,8 +26,8 @@ TermorChartApp offers a wide range of charts categorized into basic, statistical
 - **Pie Chart**: Represents event types and slices of magnitude ranges.
 
 ### 📊 Statistical Charts
-- **Histograms**: *Coming soon*.
-- **2D Density Plots**: *Coming soon*.
+- **Histograms**: Includes a magnitude distribution chart and a depth distribution diagram.
+- **2D Density Plots**: Features a geographic distribution chart and a depth vs magnitude chart.
 
 ### 🔬 Scientific Charts
 - **Heat Maps**: *Coming soon*.
@@ -37,11 +35,10 @@ TermorChartApp offers a wide range of charts categorized into basic, statistical
 
 Stay tuned for more updates and features!
 
-# React + Vite
+## 🛠️ Technologies Used
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The app leverages the following technologies:
+- **⚛️ React**: For building the user interface and managing the state of the application.
+- **🎨 Bootstrap**: For responsive design and styling.
+- **📊 Plotly.js**: For creating interactive and visually appealing charts.
+- **🔗 Axios**: For making HTTP requests to fetch data from the API.
