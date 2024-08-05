@@ -113,42 +113,57 @@ const PieChart = () => {
 
 
 
-    return ( 
+    return (
+      <>
+        <head>
+            <title>Tremorcharts - pie charts</title>
+        </head>
         <div className="col-9">
-             <Breadcrumb className="mt-3">
-                <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-                <Breadcrumb.Item href="scatter-plot">Basic charts</Breadcrumb.Item>
-                <Breadcrumb.Item href="pie-chart" active>Pie charts</Breadcrumb.Item>
-            </Breadcrumb>
-            <hr />
-            <div className="row mb-5 mx-2">
+          <Breadcrumb className="mt-3">
+            <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+            <Breadcrumb.Item href="scatter-plot">Basic charts</Breadcrumb.Item>
+            <Breadcrumb.Item href="pie-chart" active>
+              Pie charts
+            </Breadcrumb.Item>
+          </Breadcrumb>
+          <hr />
+          <div className="row mb-5 mx-2">
             {error && <Error />}
             {confirmLoad && <Success startDate={startDate} endDate={endDate} />}
-                <form onSubmit={handleSubmit} className="d-flex flex-row justify-content-around">
-                    <label>Select start date</label>
-                    <DatePicker
-                        selected={startDate}
-                        onChange={(date) => setStartDate(date)}
-                        isClearable
-                        placeholderText="Select start date"
-                    />
-                    <label>Select end date</label>
-                    <DatePicker
-                        selected={endDate}
-                        onChange={(date) => setEndDate(date)}
-                        isClearable
-                        placeholderText="Select end date"
-                    />
-                    <button type="submit" className="bg-success text-bg-primary border border-success">display data</button>
-                </form>
-                {loader && <Loader/>}
-            </div>
-            <div className="d-flex flex-row justify-content-between">
-                {pieData && <MagnitudePie pieData={pieData}/>}
-                {typeData && <TypePie typeData={typeData}/>}
-            </div>
+            <form
+              onSubmit={handleSubmit}
+              className="d-flex flex-row justify-content-around"
+            >
+              <label>Select start date</label>
+              <DatePicker
+                selected={startDate}
+                onChange={(date) => setStartDate(date)}
+                isClearable
+                placeholderText="Select start date"
+              />
+              <label>Select end date</label>
+              <DatePicker
+                selected={endDate}
+                onChange={(date) => setEndDate(date)}
+                isClearable
+                placeholderText="Select end date"
+              />
+              <button
+                type="submit"
+                className="bg-success text-bg-primary border border-success"
+              >
+                display data
+              </button>
+            </form>
+            {loader && <Loader />}
+          </div>
+          <div className="d-flex flex-row justify-content-between">
+            {pieData && <MagnitudePie pieData={pieData} />}
+            {typeData && <TypePie typeData={typeData} />}
+          </div>
         </div>
-     );
+      </>
+    );
 }
  
 export default PieChart;

@@ -4,12 +4,11 @@ import { instance } from "../../config/axios.instance";
 
 import { useEffect, useState } from "react";
 
-import Loader from "../../components/states/Loader"
-import { Spinner } from "react-bootstrap";
+import Loader from "../../components/states/Loader";
 
 const DataTable = () => {
   const [data, setData] = useState([]);
-  const [spinner, setSpinner] = useState(true)
+  const [spinner, setSpinner] = useState(true);
 
   const currentDate = new Date();
   const startDate = new Date();
@@ -52,8 +51,8 @@ const DataTable = () => {
       setData(info);
     } catch (err) {
       console.error(err);
-    }finally{
-      setSpinner(false)
+    } finally {
+      setSpinner(false);
     }
   };
 
@@ -63,7 +62,7 @@ const DataTable = () => {
 
   const getMagnitudeColor = (magnitude) => {
     if (magnitude > 5.0) {
-      return { backgroundColor: "red", color: "white"};
+      return { backgroundColor: "red", color: "white" };
     } else if (magnitude >= 3.0 && magnitude <= 5.0) {
       return { backgroundColor: "orange", color: "black" };
     } else {
@@ -73,6 +72,9 @@ const DataTable = () => {
 
   return (
     <>
+      <head>
+        <title>Tremorcharts - real time data</title>
+      </head>
       <div className="col-9">
         <Breadcrumb className="mt-3">
           <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
@@ -82,9 +84,10 @@ const DataTable = () => {
         </Breadcrumb>
         <hr />
         <div className="alert alert-primary" role="alert">
-          Displaying Real-Time Event Data from the Current Date to the Previous Day
+          Displaying Real-Time Event Data from the Current Date to the Previous
+          Day
         </div>
-        {spinner && <Loader/>}
+        {spinner && <Loader />}
         <table className="w-100">
           <thead className="bg-dark-subtle">
             <tr>
@@ -96,17 +99,18 @@ const DataTable = () => {
             </tr>
           </thead>
           <tbody>
-           {
-            data.length > 0 && data.map((item, index) => (
+            {data.length > 0 &&
+              data.map((item, index) => (
                 <tr key={index} style={getMagnitudeColor(item.magnitude)}>
-                    <td className="mx-2">{item.type}</td>
-                    <td className="mx-2">{item.place}</td>
-                    <td className="mx-2">{item.time}</td>
-                    <td className="mx-2">{item.magnitude}</td>
-                    <td className="mx-2"><a href={item.detail}>more details</a></td>
+                  <td className="mx-2">{item.type}</td>
+                  <td className="mx-2">{item.place}</td>
+                  <td className="mx-2">{item.time}</td>
+                  <td className="mx-2">{item.magnitude}</td>
+                  <td className="mx-2">
+                    <a href={item.detail}>more details</a>
+                  </td>
                 </tr>
-            ))
-           }
+              ))}
           </tbody>
         </table>
       </div>

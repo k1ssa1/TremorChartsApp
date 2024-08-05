@@ -81,7 +81,11 @@ const ScatterPlot = () => {
     }
 
     return ( 
-        <div className="col-9">
+        <>
+            <head>
+                <title>Tremorcharts - scatter plots</title>
+            </head>
+            <div className="col-9">
             <Breadcrumb className="mt-3">
                 <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
                 <Breadcrumb.Item href="scatter-plot">Basic charts</Breadcrumb.Item>
@@ -114,6 +118,8 @@ const ScatterPlot = () => {
                 {scatterData && <MagnitudeScatter scatterData={scatterData}/>}
             </div>
         </div>
+        </>
+        
      );
 }
  

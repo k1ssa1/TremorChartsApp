@@ -77,6 +77,10 @@ const BarChart = () => {
 
 
     return ( 
+        <>
+         <head>
+            <title>Tremorcharts - bar charts</title>
+        </head>
         <div className="col-9">
              <Breadcrumb className="mt-3">
                 <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
@@ -110,6 +114,8 @@ const BarChart = () => {
             {data && <MagnitudeChart data={data}/>}
             </div>
         </div>
+        </>
+        
      );
 }
  

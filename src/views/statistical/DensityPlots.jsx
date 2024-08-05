@@ -94,40 +94,69 @@ const DensityPlots = () => {
         getData()
     }
 
-    return ( 
+    return (
+      <>
+        <head>
+          <title>Tremorcharts - density charts</title>
+        </head>
         <div className="col-9">
-             <Breadcrumb className="mt-3">
-                <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-                <Breadcrumb.Item href="histograms">Statistical charts</Breadcrumb.Item>
-                <Breadcrumb.Item href="2d-density-plots" active>2D density plots</Breadcrumb.Item>
-            </Breadcrumb>
-            <hr />
-            {error && <Error />}
-            {confirmLoad && <Success startDate={startDate} endDate={endDate} />}
-            <form onSubmit={handleSubmit} className="d-flex flex-row justify-content-around">
-                    <label>Select start date</label>
-                    <DatePicker
-                        selected={startDate}
-                        onChange={(date) => setStartDate(date)}
-                        isClearable
-                        placeholderText="Select start date"
-                    />
-                    <label>Select end date</label>
-                    <DatePicker
-                        selected={endDate}
-                        onChange={(date) => setEndDate(date)}
-                        isClearable
-                        placeholderText="Select end date"
-                    />
-                    <button type="submit" className="bg-success text-bg-primary border border-success">display data</button>
-                </form>
-                {loader && <Loader/>}
-                <div className="mt-4 d-flex flex-row justify-content-evenly">
-                    {coordinates && <GeographicDistribution longitude={longitude} latitude={latitude} title="Geographic distribution density"/>}
-                    {data && <MagsDepth mags={mags} depths={depths} title="Magnitude vs Depth density"/>}
-                </div>
+          <Breadcrumb className="mt-3">
+            <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+            <Breadcrumb.Item href="histograms">
+              Statistical charts
+            </Breadcrumb.Item>
+            <Breadcrumb.Item href="2d-density-plots" active>
+              2D density plots
+            </Breadcrumb.Item>
+          </Breadcrumb>
+          <hr />
+          {error && <Error />}
+          {confirmLoad && <Success startDate={startDate} endDate={endDate} />}
+          <form
+            onSubmit={handleSubmit}
+            className="d-flex flex-row justify-content-around"
+          >
+            <label>Select start date</label>
+            <DatePicker
+              selected={startDate}
+              onChange={(date) => setStartDate(date)}
+              isClearable
+              placeholderText="Select start date"
+            />
+            <label>Select end date</label>
+            <DatePicker
+              selected={endDate}
+              onChange={(date) => setEndDate(date)}
+              isClearable
+              placeholderText="Select end date"
+            />
+            <button
+              type="submit"
+              className="bg-success text-bg-primary border border-success"
+            >
+              display data
+            </button>
+          </form>
+          {loader && <Loader />}
+          <div className="mt-4 d-flex flex-row justify-content-evenly">
+            {coordinates && (
+              <GeographicDistribution
+                longitude={longitude}
+                latitude={latitude}
+                title="Geographic distribution density"
+              />
+            )}
+            {data && (
+              <MagsDepth
+                mags={mags}
+                depths={depths}
+                title="Magnitude vs Depth density"
+              />
+            )}
+          </div>
         </div>
-     );
+      </>
+    );
 }
  
 export default DensityPlots;

@@ -78,7 +78,11 @@ const Histograms = () => {
 
 
     return ( 
-        <div className="col-9">
+        <>
+            <head>
+                <title>Tremorcharts - histograms</title>
+            </head>
+            <div className="col-9">
              <Breadcrumb className="mt-3">
                 <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
                 <Breadcrumb.Item href="histograms">Statistical charts</Breadcrumb.Item>
@@ -109,7 +113,9 @@ const Histograms = () => {
                     {magData && <MagHistogram magData={magData} title="Magnitude distribution histogram"/>}
                     {depthData && <DepthHistogram depthData={depthData} title="Depth distribution histogram"/>}
                 </div>
-        </div>
+        </div> 
+        </>
+       
      );
 }
  
