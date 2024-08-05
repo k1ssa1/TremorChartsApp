@@ -11,7 +11,7 @@ const DetailModal = ({place, magnitudes, time, type, detail, onClose}) => {
                 <div className="d-flex flex-column p-2 mt-2">
                     <p><strong>Location:</strong> {place}</p>
                     <p><strong>Magnitude:</strong> {magnitudes}</p>
-                    <p><strong>Time in milliseconds:</strong> {time}</p>
+                    <p><strong>occurrenceTime:</strong> {time}</p>
                     <p><strong>Type:</strong> {type}</p>
                     <p><strong>Details:</strong> <a href={detail} target="_blank" rel="noopener noreferrer">More Info</a></p>
                 </div>

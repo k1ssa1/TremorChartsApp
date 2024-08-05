@@ -22,9 +22,19 @@ const Mapbox = ({lon, lat, place, magnitudes, time, type, detail}) => {
         const typeText = type[point.pointIndex] || "N/A";
         const detailText = detail[point.pointIndex] || "N/A";
 
+        const occurrenceTime = new Date(timeText)
+        const year = occurrenceTime.getFullYear().toString()
+        const month = (occurrenceTime.getMonth() + 1).toString().padStart(2,"0")
+        const day = occurrenceTime.getDate().toString().padStart(2,"0")
+        const hours = occurrenceTime.getHours().toString()
+        const minutes = occurrenceTime.getMinutes().toString()
+        const seconds = occurrenceTime.getSeconds().toString()
+
+        const timestamp = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`
+
         setSelectedPlace(placeText);
         setSelectedMagnitude(magnitude);
-        setSelectedTime(timeText);
+        setSelectedTime(timestamp);
         setSelectedType(typeText);
         setSelectedDetail(detailText);
         setModal(true);
@@ -41,9 +51,9 @@ const Mapbox = ({lon, lat, place, magnitudes, time, type, detail}) => {
                         mode: 'markers',
                         lon: lon,
                         lat: lat,
-                        text: "show info",
+                        text: "click to show info",
                         hoverinfo: 'text',
-                        marker: { color: "red", size: 10}
+                        marker: { color: "red", size: 8}
                     }
                 ]} 
                 layout={{
