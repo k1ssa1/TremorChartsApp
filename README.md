@@ -1,4 +1,4 @@
-# 🌍 TermorChartApp
+# 🌍 TremorChartApp
 
 ## 📢 Disclaimer
 
