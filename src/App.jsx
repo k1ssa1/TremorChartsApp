@@ -7,7 +7,7 @@ function App() {
   return (
     <>
     <head>
-      <title>Tremorcharts -home</title>
+      <title>Tremorcharts - Visualize Earthquake Data</title>
     </head>
       <div className="col-8">
         <h1 className="mt-5 mb-3">Index</h1>
