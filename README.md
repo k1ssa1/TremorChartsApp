@@ -7,9 +7,6 @@ This application does not own the data from the endpoints provided by the USGS E
 
 **TermorChartApp** is a React application designed to visualize earthquake data using Plotly.js. The app fetches data from the USGS Earthquake API, available at [USGS Earthquake API](https://earthquake.usgs.gov/fdsnws/event/1/), and creates various types of charts to help users analyze and understand earthquake occurrences.
 
-## 🌐 Live Demo
-The app is live on Netlify! Feel free to use it at [cozy-torrone-db02c4.netlify.app](https://cozy-torrone-db02c4.netlify.app).
-
 ## 📸 Screenshots
 
 Here are some screenshots of the TermorChartApp in action:
@@ -27,7 +24,6 @@ Here are some screenshots of the TermorChartApp in action:
 ![Histogram](public/tremorChartAPP_screens/histograms.PNG)
 - 2D Density Plot
 ![2D Density Plot](public/tremorChartAPP_screens/2d%20density.PNG)
-
 
 ## 📈 Available Charts
 
