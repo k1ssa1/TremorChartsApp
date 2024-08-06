@@ -10,6 +10,25 @@ This application does not own the data from the endpoints provided by the USGS E
 ## 🌐 Live Demo
 The app is live on Netlify! Feel free to use it at [cozy-torrone-db02c4.netlify.app](https://cozy-torrone-db02c4.netlify.app).
 
+## 📸 Screenshots
+
+Here are some screenshots of the TermorChartApp in action:
+
+### Real-Time Data Table
+![Real-Time Data Table](public/tremorChartAPP_screens/realtime.PNG)
+
+### Map Box
+![Map Box](public/tremorChartAPP_screens/mapbox.PNG)
+
+### Charts
+- Pie Chart
+![Pie Chart](public/tremorChartAPP_screens/piecharts.PNG)
+- Histogram
+![Histogram](public/tremorChartAPP_screens/histograms.PNG)
+- 2D Density Plot
+![2D Density Plot](public/tremorChartAPP_screens/2d%20density.PNG)
+
+
 ## 📈 Available Charts
 
 TermorChartApp offers a wide range of charts categorized into basic, statistical, and scientific charts:
