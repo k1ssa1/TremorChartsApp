@@ -45,7 +45,7 @@ TermorChartApp offers a wide range of charts categorized into basic, statistical
 - **2D Density Plots**: Features a geographic distribution chart and a depth vs magnitude chart.
 
 ### 🔬 Scientific Charts
-- **Heat Maps**: *Coming soon*.
+- **Heat Maps**: Comprising Geospatial Heatmap (Depth) and Geospatial Heatmap (Magnitude).
 - **Radar Charts**: *Coming soon*.
 
 Stay tuned for more updates and features!
