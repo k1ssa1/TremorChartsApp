@@ -46,7 +46,7 @@ TermorChartApp offers a wide range of charts categorized into basic, statistical
 
 ### 🔬 Scientific Charts
 - **Heat Maps**: Comprising Geospatial Heatmap (Depth) and Geospatial Heatmap (Magnitude).
-- **Radar Charts**: *Coming soon*.
+- **Radar Charts**: Displaying Detection Quality and Earthquake Impact.
 
 Stay tuned for more updates and features!
 
